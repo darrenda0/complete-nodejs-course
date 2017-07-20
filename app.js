@@ -38,10 +38,7 @@ if (command === 'add') {
     //if note did get printed successfully:
     if (note) {
         console.log('Note created');
-        console.log('--');
-        console.log('Title: ' + note.title);
-        console.log('Body: ' + note.body);
-
+        notes.logNote(note);
     } else {
         console.log('Note title alraedy taken');
     }
@@ -50,10 +47,19 @@ if (command === 'add') {
     notes.getAll();
 } else if (command === 'read'){
     // console.log('Reading note');
-    notes.getNote(argv.title);
+    var note = notes.getNote(argv.title);
+    if (note) {
+        console.log('Note found');
+       notes.logNote(note);
+    } else {
+        console.log('Note cannot be read');
+    }
 } else if (command === 'remove') {
     // console.log ('Removing note')
-    notes.removeNote(argv.title);
+    var noteRemove = notes.removeNote(argv.title);
+    var message = noteRemove ? 'Note was removed' : 'Note not found';
+    console.log(message);
+    
 }else {
     console.log('Command not recognized');
 }
