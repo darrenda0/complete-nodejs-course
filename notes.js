@@ -1,5 +1,3 @@
-console.log('Starting notes.js');
-
 const fs = require('fs');
 
 var fetchNotes = () => {
@@ -15,23 +13,6 @@ var saveNotes = (notes) => {
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 
 };
-//module.exports.age = 25;
-
-// function () = '=>'
-
-//  module.exports.addNote = () =>{
-//      console.log('addNote');
-//      return 'New note';
-//  }
-
-// module.exports.addNum = (a, b) => {
-//     return a + b;
-// };
-
-//Section 3, Lecture 13
-//addNote: addNote = addNote
-
-
 
 var addNote = (title, body) => {
 //    console.log('Adding note', title, body);
@@ -51,7 +32,7 @@ var addNote = (title, body) => {
 };
 
 var getAll = () => {
-    console.log('Getting all notes');
+    return fetchNotes();    
 }
 
 var getNote = (title) => {
